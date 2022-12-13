@@ -1,6 +1,7 @@
 <!-- App.svelte -->
 
 <script>
+  import { teacherOptions, subjectOptions } from '../abbreviations.js'
   import { copy } from 'svelte-copy';
 	import Schulfach from './Schulfach.svelte';
 	import AG from './AG.svelte';
@@ -9,15 +10,6 @@
 
   let type = 'schulfach'
   let possibleTypes = ['Schulfach', 'AG', 'IG']
-
-  let teacherOptions = ['Sn', 'Bo', 'Ht']
-  let subjectOptions = [
-    {name: 'Deutsch', abbreviation: 'de'},
-    {name: 'Englisch', abbreviation: 'en'},
-    {name: 'Französisch', abbreviation: 'fr'},
-    {name: 'Latein', abbreviation: 'la'},
-    {name: 'Spanisch', abbreviation: 'sp'},
-  ]
 
   let schulfach_name = ''
   let ag_name = ''
