@@ -26,7 +26,7 @@
   });
 </script>
 
-<div class="hero min-h-screen bg-base-100">
+<div class="hero min-h-screen bg-base-200">
   <div class="hero-content w-full">
     <div class="text-center w-2/3 hidden md:block">
       <h1 class="text-5xl font-bold min-w-sm">
@@ -34,7 +34,7 @@
       </h1>
     </div>
     <div class="w-full max-w-sm md:w-1/3">
-      <div class="tabs tabs-boxed mb-5 bg-base-100">
+      <div class="tabs tabs-boxed mb-5">
         {#each possibleTypes as possibleType}
           <!-- svelte-ignore a11y-invalid-attribute -->
           <a href="#" class={type == possibleType.toLocaleLowerCase() ? 'tab tab-active' : 'tab'} on:click={() => {type = possibleType.toLocaleLowerCase()}}><b>{possibleType}</b></a> 
