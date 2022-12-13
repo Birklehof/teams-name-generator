@@ -62,3 +62,17 @@ export let subjectOptions = [
   { name: "NWT", abbreviation: "nwt" },
   { name: "WBS", abbreviation: "wbs" },
 ];
+
+// Write grade levels here, duplicates will be removed
+export let gradeLevels = [
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10A",
+  "10B",
+  "10C",
+  "Q1",
+  "Q2",
+];

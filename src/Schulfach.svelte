@@ -3,6 +3,7 @@
 
   export let teacherOptions = []
   export let subjectOptions = []
+  export let gradeLevels = []
 
 	let grade_level = 'Klasse'
 	let subject = 'Fach'
@@ -35,15 +36,10 @@
 
 <select class="select select-bordered w-full max-w-xs" bind:value={grade_level} on:change={updateName}>
   <option value="Klasse">Klasse</option>
-	<option value="5">5</option>
-	<option value="6">6</option>
-	<option value="7">7</option>
-	<option value="8">8</option>
-	<option value="9">9</option>
-	<option value="10">10</option>
-	<option value="Q1">Q1</option>
-	<option value="Q2">Q2</option></select
-	>
+  {#each gradeLevels as option}
+    <option value={option}>{option}</option>
+  {/each}
+</select>
 
 <select class="select select-bordered w-full max-w-xs" bind:value={subject} on:change={updateName}>
   <option value="Fach">Fach</option>

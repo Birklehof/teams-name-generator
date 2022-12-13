@@ -1,7 +1,7 @@
 <!-- App.svelte -->
 
 <script>
-  import { teacherOptions, subjectOptions } from '../abbreviations.js'
+  import { teacherOptions, subjectOptions, gradeLevels } from '../abbreviations.js'
   import { copy } from 'svelte-copy';
 	import Schulfach from './Schulfach.svelte';
 	import AG from './AG.svelte';
@@ -12,6 +12,7 @@
   let sortedSubjectOptions = [...new Set(subjectOptions)].sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
+  let uniqueGradeLevels = [...new Set(gradeLevels)]
 
   let type = 'schulfach'
   let possibleTypes = ['Schulfach', 'AG', 'IG']
@@ -49,7 +50,7 @@
         <div class="card max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
             {#if type == 'schulfach'}
-              <Schulfach bind:name={schulfach_name} teacherOptions={sortedTeacherOptions} subjectOptions={sortedSubjectOptions}/>
+              <Schulfach bind:name={schulfach_name} teacherOptions={sortedTeacherOptions} subjectOptions={sortedSubjectOptions} gradeLevels={uniqueGradeLevels}/>
             {:else if type == 'ag'}
               <AG bind:name={ag_name} teacherOptions={sortedTeacherOptions}/>
             {:else if type == 'ig'}
