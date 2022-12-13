@@ -1,8 +1,8 @@
 {
-  "name": "birklehof-teams-name-generator",
-  "homepage": "https://c0mput3r5c13nt15t.github.io/birklehof-teams-name-generator/",
+  "name": "teams-name-generator",
+  "homepage": "https://birklehof.github.io/teams-name-generator/",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",

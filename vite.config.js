@@ -3,6 +3,6 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/birklehof-teams-name-generator/",
+  base: "/teams-name-generator/",
   plugins: [svelte()],
 });
