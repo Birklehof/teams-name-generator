@@ -10,7 +10,7 @@
   export let name = ''
 
   function updateName() {
-    name = 'AG ' + title + ' ' + teacher + ' ' + year
+    name = 'AG ' + title.trim() + ' ' + teacher + ' ' + year
   }
 
   onMount(async () => {

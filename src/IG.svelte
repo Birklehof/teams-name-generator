@@ -7,7 +7,7 @@
   export let name = 'IG ' + title + ' ' + year
 
   function updateName() {
-    name = 'IG ' + title + ' ' + year
+    name = 'IG ' + title.trim() + ' ' + year
   }
 
   onMount(async () => {
