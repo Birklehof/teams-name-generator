@@ -26,7 +26,7 @@
   });
 </script>
 
-<div class="hero min-h-screen bg-base-200">
+<div class="hero min-h-screen bg-base-100">
   <div class="hero-content w-full">
     <div class="text-center w-2/3 hidden md:block">
       <h1 class="text-5xl font-bold min-w-sm">
