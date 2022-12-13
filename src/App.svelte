@@ -8,6 +8,11 @@
 	import IG from './IG.svelte';
   import { onMount } from 'svelte/internal';
 
+  let sortedTeacherOptions = [...new Set(teacherOptions)].sort()
+  let sortedSubjectOptions = [...new Set(subjectOptions)].sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
   let type = 'schulfach'
   let possibleTypes = ['Schulfach', 'AG', 'IG']
 
@@ -44,9 +49,9 @@
         <div class="card max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
             {#if type == 'schulfach'}
-              <Schulfach bind:name={schulfach_name} teacherOptions={teacherOptions} subjectOptions={subjectOptions}/>
+              <Schulfach bind:name={schulfach_name} teacherOptions={sortedTeacherOptions} subjectOptions={sortedSubjectOptions}/>
             {:else if type == 'ag'}
-              <AG bind:name={ag_name} teacherOptions={teacherOptions}/>
+              <AG bind:name={ag_name} teacherOptions={sortedTeacherOptions}/>
             {:else if type == 'ig'}
               <IG bind:name={ig_name}/>
             {/if}

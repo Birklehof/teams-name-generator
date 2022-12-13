@@ -1,3 +1,4 @@
+// Write abbreviations for teachers here, duplicates will be removed and the list will be sorted alphabetically
 export let teacherOptions = [
   "Abl",
   "Ba",
@@ -37,19 +38,26 @@ export let teacherOptions = [
   "Wel",
   "Ze",
 ];
+
+// Write names and abbreviations for subjects here, duplicates will be removed and the list will be sorted alphabetically by name
 export let subjectOptions = [
+  { name: "Bildende Kunst", abbreviation: "bk" },
   { name: "Mathematik", abbreviation: "m" },
   { name: "Chemie", abbreviation: "ch" },
-  { name: "Biologie", abbreviation: "bio" },
   { name: "Deutsch", abbreviation: "d" },
   { name: "Englisch", abbreviation: "e" },
   { name: "Gemeinschaftskunde", abbreviation: "gk" },
   { name: "Geschichte", abbreviation: "ge" },
+  { name: "Geographie", abbreviation: "geo" },
   { name: "Physik", abbreviation: "ph" },
   { name: "Informatik", abbreviation: "inf" },
   { name: "Musik", abbreviation: "mu" },
-  { name: "Bildende Kunst", abbreviation: "bk" },
   { name: "Sport", abbreviation: "sp" },
   { name: "Religion", abbreviation: "rel" },
   { name: "SIA", abbreviation: "sia" },
+  { name: "Französisch", abbreviation: "fr" },
+  { name: "Latein", abbreviation: "la" },
+  { name: "Spanisch", abbreviation: "sp" },
+  { name: "NWT", abbreviation: "nwt" },
+  { name: "WBS", abbreviation: "wbs" },
 ];
