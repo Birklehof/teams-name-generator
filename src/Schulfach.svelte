@@ -8,7 +8,7 @@
 	let subject = 'Fach'
 	let level = 'bf'
 	let teacher = 'Lehrer'
-	let year = '22/23'
+	let year = 'Schuljahr'
 
   export let name = ''
 
@@ -16,8 +16,20 @@
     name = grade_level + ' ' + ((level == 'lf' && (grade_level == 'Q1' ||  grade_level == 'Q2')) ? subject.toUpperCase() + ' ' : subject + ' ') + ((grade_level == 'Q1' ||  grade_level == 'Q2') ? level.toUpperCase() : '') + ' ' + teacher + ' ' + year
   }
 
+  function schoolYear() {
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = date.getMonth()
+    if (month < 8) {
+      return (year - 1).toString().substr(2, 2) + '/' + year.toString().substr(2, 2)
+    } else {
+      return year.toString().substr(2, 2) + '/' + (year + 1).toString().substr(2, 2)
+    }
+  }
+
   onMount(async () => {
-		updateName()
+    year = schoolYear()
+    updateName()
 	});
 </script>
 

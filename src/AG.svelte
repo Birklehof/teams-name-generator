@@ -5,12 +5,11 @@
 
 	let title = 'Name'
 	let teacher = ''
-	let year = '22/23'
 
   export let name = ''
 
   function updateName() {
-    name = 'AG ' + title.trim() + ' ' + teacher + ' ' + year
+    name = 'AG ' + title.trim() + ' ' + teacher
   }
 
   onMount(async () => {
