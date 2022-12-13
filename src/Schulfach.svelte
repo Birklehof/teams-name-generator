@@ -13,7 +13,7 @@
   export let name = ''
 
   function updateName() {
-    name = grade_level + ' ' + ((level == 'lf' && (grade_level == 'Q1' ||  grade_level == 'Q2')) ? subject.toUpperCase() : subject)  + ' ' + ((grade_level == 'Q1' ||  grade_level == 'Q2') ? level.toUpperCase() : '') + ' ' + teacher + ' ' + year
+    name = grade_level + ' ' + ((level == 'lf' && (grade_level == 'Q1' ||  grade_level == 'Q2')) ? subject.toUpperCase() + ' ' : subject + ' ') + ((grade_level == 'Q1' ||  grade_level == 'Q2') ? level.toUpperCase() : '') + ' ' + teacher + ' ' + year
   }
 
   onMount(async () => {
