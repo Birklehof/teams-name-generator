@@ -42,6 +42,8 @@ export let teacherOptions = [
 // Write names and abbreviations for subjects here, duplicates will be removed and the list will be sorted alphabetically by name
 export let subjectOptions = [
   { name: "Bildende Kunst", abbreviation: "bk" },
+  { name: "Biologie", abbreviation: "bio" },
+  { name: "BNT", abbreviation: "bnt" },
   { name: "Mathematik", abbreviation: "m" },
   { name: "Chemie", abbreviation: "ch" },
   { name: "Deutsch", abbreviation: "d" },
@@ -61,6 +63,7 @@ export let subjectOptions = [
   { name: "Spanisch", abbreviation: "sp" },
   { name: "NWT", abbreviation: "nwt" },
   { name: "WBS", abbreviation: "wbs" },
+  { name: "Darma", abbreviation: "drama" },
 ];
 
 // Write grade levels here, duplicates will be removed
