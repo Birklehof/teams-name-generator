@@ -58,7 +58,7 @@ export let subjectOptions = [
   { name: "Erlebnissport", abbreviation: "erl-spo" },
   { name: "Religion", abbreviation: "rel" },
   { name: "SIA", abbreviation: "sia" },
-  { name: "Französisch", abbreviation: "fr" },
+  { name: "Französisch", abbreviation: "f" },
   { name: "Latein", abbreviation: "la" },
   { name: "Spanisch", abbreviation: "sp" },
   { name: "NWT", abbreviation: "nwt" },
