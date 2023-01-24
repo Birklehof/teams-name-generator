@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { teacherAbbreviationsWritable } from "./lib/useRemoteConfig";
+  import { teacherAbbreviationsWritable } from "../lib/useRemoteConfig";
 
   let teacherAbbreviations = [];
   teacherAbbreviationsWritable.subscribe((value) => {

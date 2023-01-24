@@ -1,8 +1,8 @@
 <script>
   import { copy } from 'svelte-copy';
-	import Schulfach from './Schulfach.svelte';
-	import AG from './AG.svelte';
-	import IG from './IG.svelte';
+	import Schulfach from './components/Schulfach.svelte';
+	import AG from './components/AG.svelte';
+	import IG from './components/IG.svelte';
   import { onMount } from 'svelte/internal';
   import { app } from './lib/firebase';
   import { getRemoteConfig, getString, fetchAndActivate } from 'firebase/remote-config';

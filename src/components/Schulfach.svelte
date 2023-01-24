@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
+  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "../lib/useRemoteConfig";
 
   let gradeLevels = [];
   gradeLevelsWritable.subscribe((value) => {
