@@ -8,15 +8,16 @@
   import { getRemoteConfig, getString, fetchAndActivate } from 'firebase/remote-config';
   import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
 
-  let type = 'schulfach'
   let possibleTypes = ['Schulfach', 'AG', 'IG']
 
+  let copied = false
+
+  let type = 'schulfach'
   let schulfach_name = ''
   let ag_name = ''
   let ig_name = ''
 
-  let copied = false
-
+  $: type, copied = false
   $: schulfach_name, copied = false
   $: ag_name, copied = false
   $: ig_name, copied = false
@@ -79,7 +80,7 @@
             <button
               class="btn + {!copied ? 'btn-primary' : 'btn-success'}"
               use:copy={type == 'schulfach' ? schulfach_name : type == 'ag' ? ag_name : type == 'ig' ? ig_name : ''}
-              on:svelte-copy={(event) => {copied = true}}>
+              on:svelte-copy={() => {copied = true}}>
               {!copied ? 'Kopieren' : 'Kopiert'}
             </button>
           </div>
