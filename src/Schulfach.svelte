@@ -1,9 +1,21 @@
 <script>
   import { onMount } from "svelte";
+  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
 
-  export let teacherOptions = []
-  export let subjectOptions = []
-  export let gradeLevels = []
+  let gradeLevels = [];
+  gradeLevelsWritable.subscribe((value) => {
+    gradeLevels = value;
+  });
+
+  let teacherAbbreviations = [];
+  teacherAbbreviationsWritable.subscribe((value) => {
+    teacherAbbreviations = value;
+  });
+
+  let subjects = [];
+  subjectsWritable.subscribe((value) => {
+    subjects = value;
+  });
 
 	let grade_level = 'Klasse'
 	let subject = 'Fach'
@@ -43,7 +55,7 @@
 
 <select class="select select-bordered w-full max-w-xs" bind:value={subject} on:change={updateName}>
   <option value="Fach">Fach</option>
-  {#each subjectOptions as option}
+  {#each subjects as option}
     <option value={option.abbreviation}>{option.name}</option>
   {/each}
 </select>
@@ -55,7 +67,7 @@
 
 <select class="select select-bordered w-full max-w-xs" bind:value={teacher} on:change={updateName}>
   <option value="Lehrer">Lehrer</option>
-  {#each teacherOptions as option}
+  {#each teacherAbbreviations as option}
     <option value={option}>{option}</option>
   {/each}
 </select>

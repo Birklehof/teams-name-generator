@@ -1,7 +1,11 @@
 <script>
   import { onMount } from "svelte";
+  import { teacherAbbreviationsWritable } from "./lib/useRemoteConfig";
 
-  export let teacherOptions = []
+  let teacherAbbreviations = [];
+  teacherAbbreviationsWritable.subscribe((value) => {
+    teacherAbbreviations = value;
+  });
 
 	let title = 'Name'
 	let teacher = 'Lehrer'
@@ -22,7 +26,7 @@
 <select class="select select-bordered w-full max-w-xs" bind:value={teacher} on:change={updateName}>
   <option value="Lehrer">Lehrer</option>
   <option value="">Kein Lehrer</option>
-  {#each teacherOptions as option}
+  {#each teacherAbbreviations as option}
     <option value={option}>{option}</option>
   {/each}
 </select>

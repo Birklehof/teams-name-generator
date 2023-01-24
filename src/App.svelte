@@ -1,18 +1,12 @@
-<!-- App.svelte -->
-
 <script>
-  import { teacherOptions, subjectOptions, gradeLevels } from '../abbreviations.js'
   import { copy } from 'svelte-copy';
 	import Schulfach from './Schulfach.svelte';
 	import AG from './AG.svelte';
 	import IG from './IG.svelte';
   import { onMount } from 'svelte/internal';
-
-  let sortedTeacherOptions = [...new Set(teacherOptions)].sort()
-  let sortedSubjectOptions = [...new Set(subjectOptions)].sort((a, b) => {
-    return a.name.localeCompare(b.name);
-  });
-  let uniqueGradeLevels = [...new Set(gradeLevels)]
+  import { app } from './lib/firebase';
+  import { getRemoteConfig, getString, fetchAndActivate } from 'firebase/remote-config';
+  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
 
   let type = 'schulfach'
   let possibleTypes = ['Schulfach', 'AG', 'IG']
@@ -28,7 +22,33 @@
   $: ig_name, copied = false
 
   onMount(async () => {
+    const remoteConfig = getRemoteConfig(app);
     copied = false
+
+    if (typeof window !== "undefined") {
+      remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+
+      fetchAndActivate(remoteConfig)
+        .then(() => {
+          const gradeLevelsData = getString(remoteConfig, "gradeLevels");
+          const teacherAbbreviationsData = getString(remoteConfig, "teacherAbbreviations");
+          const subjectsData = getString(remoteConfig, "subjects");
+          
+          
+          if (gradeLevelsData) {
+            gradeLevelsWritable.set(JSON.parse(gradeLevelsData));
+          }
+          if (teacherAbbreviationsData) {
+            teacherAbbreviationsWritable.set(JSON.parse(teacherAbbreviationsData));
+          }
+          if (subjectsData) {
+            subjectsWritable.set(JSON.parse(subjectsData));
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   });
 </script>
 
@@ -50,9 +70,9 @@
         <div class="card max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
             {#if type == 'schulfach'}
-              <Schulfach bind:name={schulfach_name} teacherOptions={sortedTeacherOptions} subjectOptions={sortedSubjectOptions} gradeLevels={uniqueGradeLevels}/>
+              <Schulfach bind:name={schulfach_name}/>
             {:else if type == 'ag'}
-              <AG bind:name={ag_name} teacherOptions={sortedTeacherOptions}/>
+              <AG bind:name={ag_name}/>
             {:else if type == 'ig'}
               <IG bind:name={ig_name}/>
             {/if}
