@@ -27,7 +27,7 @@
     copied = false
 
     if (typeof window !== "undefined") {
-      remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+      remoteConfig.settings.minimumFetchIntervalMillis = 600000
 
       fetchAndActivate(remoteConfig)
         .then(() => {

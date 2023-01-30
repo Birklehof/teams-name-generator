@@ -73,4 +73,9 @@ export let teacherAbbreviationsWritable = writable([
   "Wa",
   "Wel",
   "Ze",
+  "Bü",
+  "Hm",
+  "Hoff",
+  "Bs",
+  "Mo",
 ]);

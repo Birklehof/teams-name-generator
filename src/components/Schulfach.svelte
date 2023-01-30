@@ -9,7 +9,9 @@
 
   let teacherAbbreviations = [];
   teacherAbbreviationsWritable.subscribe((value) => {
-    teacherAbbreviations = value;
+    teacherAbbreviations = value.sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
   });
 
   let subjects = [];

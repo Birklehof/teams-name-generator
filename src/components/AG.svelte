@@ -4,7 +4,10 @@
 
   let teacherAbbreviations = [];
   teacherAbbreviationsWritable.subscribe((value) => {
-    teacherAbbreviations = value;
+    // sort value ignore case
+    teacherAbbreviations =  value.sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
   });
 
 	let title = 'Name'
