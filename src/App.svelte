@@ -6,7 +6,7 @@
   import { onMount } from 'svelte/internal';
   import { app } from './lib/firebase';
   import { getRemoteConfig, getString, fetchAndActivate } from 'firebase/remote-config';
-  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
+  import { classesWritable, teacherAbbreviationsWritable, subjectsWritable } from "./lib/useRemoteConfig";
 
   let possibleTypes = ['Schulfach', 'AG', 'IG']
 
@@ -31,13 +31,13 @@
 
       fetchAndActivate(remoteConfig)
         .then(() => {
-          const gradeLevelsData = getString(remoteConfig, "gradeLevels");
+          const classesData = getString(remoteConfig, "classes");
           const teacherAbbreviationsData = getString(remoteConfig, "teacherAbbreviations");
           const subjectsData = getString(remoteConfig, "subjects");
           
           
-          if (gradeLevelsData) {
-            gradeLevelsWritable.set(JSON.parse(gradeLevelsData));
+          if (classesData) {
+            classesWritable.set(JSON.parse(classesData));
           }
           if (teacherAbbreviationsData) {
             teacherAbbreviationsWritable.set(JSON.parse(teacherAbbreviationsData));

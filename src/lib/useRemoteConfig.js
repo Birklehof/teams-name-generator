@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export let gradeLevelsWritable = writable([
+export let classesWritable = writable([
   "5",
   "6",
   "7",

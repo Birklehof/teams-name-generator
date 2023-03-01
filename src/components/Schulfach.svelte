@@ -1,10 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import { gradeLevelsWritable, teacherAbbreviationsWritable, subjectsWritable } from "../lib/useRemoteConfig";
+  import { classesWritable, teacherAbbreviationsWritable, subjectsWritable } from "../lib/useRemoteConfig";
 
-  let gradeLevels = [];
-  gradeLevelsWritable.subscribe((value) => {
-    gradeLevels = value;
+  let classes = [];
+  classesWritable.subscribe((value) => {
+    classes = value;
   });
 
   let teacherAbbreviations = [];
@@ -19,7 +19,7 @@
     subjects = value;
   });
 
-	let grade_level = 'Klasse'
+	let _class = 'Klasse'
 	let subject = 'Fach'
 	let level = 'bf'
 	let teacher = 'Lehrer'
@@ -28,7 +28,7 @@
   export let name = ''
 
   function updateName() {
-    name = grade_level + ' ' + ((level == 'lf' && (grade_level == 'Q1' ||  grade_level == 'Q2')) ? subject.toUpperCase() : subject) + ' ' + ((grade_level == 'Q1' ||  grade_level == 'Q2') ? level.toUpperCase() + ' ' : '') + teacher + ' ' + year
+    name = _class + ' ' + ((level == 'lf' && (_class == 'Q1' ||  _class == 'Q2')) ? subject.toUpperCase() : subject) + ' ' + ((_class == 'Q1' ||  _class == 'Q2') ? level.toUpperCase() + ' ' : '') + teacher + ' ' + year
   }
 
   function schoolYear() {
@@ -48,9 +48,9 @@
 	});
 </script>
 
-<select class="select select-bordered w-full max-w-xs" bind:value={grade_level} on:change={updateName}>
+<select class="select select-bordered w-full max-w-xs" bind:value={_class} on:change={updateName}>
   <option value="Klasse">Klasse</option>
-  {#each gradeLevels as option}
+  {#each classes as option}
     <option value={option}>{option}</option>
   {/each}
 </select>
@@ -62,7 +62,7 @@
   {/each}
 </select>
 
-<select class="select select-bordered w-full max-w-xs" bind:value={level} on:change={updateName} disabled={grade_level != 'Q1' &&  grade_level != 'Q2'}>
+<select class="select select-bordered w-full max-w-xs" bind:value={level} on:change={updateName} disabled={_class != 'Q1' &&  _class != 'Q2'}>
 	<option value="bf">Basisfach</option>
 	<option value="lf">Leistungsfach</option>
 </select>
