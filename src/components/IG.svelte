@@ -1,17 +1,22 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
-	let title = 'Name'
+  let title = "Name";
 
-  export let name = ''
+  export let name = "";
 
   function updateName() {
-    name = 'IG ' + title.trim()
+    name = "IG " + title.trim();
   }
 
   onMount(async () => {
-		updateName()
-	});
+    updateName();
+  });
 </script>
 
-<input type="text" class="input input-bordered w-full max-w-xs" bind:value={title} on:input={updateName}/>
+<input
+  type="text"
+  class="input input-bordered w-full max-w-xs"
+  bind:value={title}
+  on:input={updateName}
+/>
